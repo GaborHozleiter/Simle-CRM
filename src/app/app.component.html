@@ -4,8 +4,8 @@
       LOGO
     </div>
     <ul class="menu-items">
-      <li><mat-icon>person</mat-icon>Dashboard</li>
-      <li><mat-icon>dashboard</mat-icon>User</li>
+      <li routerLink="/" ><mat-icon>person</mat-icon>Dashboard</li>
+      <li routerLink="/user" ><mat-icon>dashboard</mat-icon>User</li>
     </ul>
   </mat-drawer>
 
@@ -16,9 +16,12 @@
         <span>Simple CRM</span>
       </mat-toolbar-row>
     </mat-toolbar>
+    <div class="router-container">
+      <router-outlet />
+    </div>
+    
   </div>
 
 </mat-drawer-container>
 
 
-<router-outlet />
