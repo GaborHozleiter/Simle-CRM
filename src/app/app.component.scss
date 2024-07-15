@@ -4,6 +4,7 @@
 
 .menu-icon {
     cursor: pointer;
+    margin-right: 8px;
 }
 
 .sidenav {
@@ -12,8 +13,33 @@
 
 .logo-container {
     border-bottom: 1px solid rgba(0,0,0,0.25);
-    padding: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
     min-height: 56px;
     display: flex;
     align-items: center;
+}
+
+mat-toolbar-row, mat-toolbar {
+    min-height: 56px;
+    height: 56px;
+}
+
+.menu-items {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+
+    li {
+        padding-left: 16px;
+        padding-right: 16px;
+        display: flex;
+        align-items: center;
+        height: 48px;
+        cursor: pointer;
+        gap: 8px;
+        &:hover {
+            background-color: rgba(0,0,0,0.15);
+        }
+    }
 }
