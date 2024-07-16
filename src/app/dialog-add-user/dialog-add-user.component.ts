@@ -3,6 +3,7 @@ import {
   MatDialogActions,
   MatDialogClose,
   MatDialogContent,
+  MatDialogRef
 } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -12,7 +13,6 @@ import { User } from '../../models/user.class';
 import { FormsModule } from '@angular/forms';
 import { Firestore, collection, addDoc, doc } from '@angular/fire/firestore';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-import { setTimeout } from 'timers/promises';
 
 @Component({
   selector: 'app-dialog-add-user',
@@ -39,6 +39,10 @@ export class DialogAddUserComponent {
   loading = false;
   private firestore: Firestore = inject(Firestore);
 
+  constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>){
+
+  }
+
   getUsersRef() {
     return collection(this.firestore, 'users');
   }
@@ -53,6 +57,8 @@ export class DialogAddUserComponent {
     this.user.birthDate = this.birthDate.getTime();
     this.addUser(this.user);
     //this.loading = true;
+      this.dialogRef.close();
+    
   }
 
   async addUser(item: User) {
