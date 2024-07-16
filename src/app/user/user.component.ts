@@ -10,6 +10,7 @@ import {
 } from '@angular/material/dialog';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table'
 
 @Component({
   selector: 'app-user',

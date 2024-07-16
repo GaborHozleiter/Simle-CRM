@@ -1,19 +1,29 @@
-
+<p>user works!</p>
 
 <div class="example-button-container">
   <mat-card appearance="outlined">
-    <mat-card-content>Simple card</mat-card-content>
-    
+    <mat-card-content></mat-card-content>
+    <table class="user-table">
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>City</th>
+      </tr>
+      <tr>
+        <td>sdgsgd</td>
+        <td>jsdbjk</td>
+        <td>dfgkdjgh</td>
+      </tr>
+
+    </table>
   </mat-card>
-  
-    
-       
-      
 
 
 
-    <button (click)="openDialog()" class="add-user-btn" mat-fab color="primary" matTooltip="Add user" 
+
+
+  <button (click)="openDialog()" class="add-user-btn" mat-fab color="primary" matTooltip="Add user"
     [matTooltipPosition]="position.value!">
-      <mat-icon>add</mat-icon>
-    </button>
-  </div>
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
