@@ -5,6 +5,7 @@ import {
   MatDialogContent,
   MatDialogRef
 } from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -28,6 +29,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatDatepickerModule,
     FormsModule,
     MatProgressBarModule,
+    MatButtonModule
   ],
   templateUrl: './dialog-add-user.component.html',
   styleUrls: ['./dialog-add-user.component.scss']
@@ -51,7 +53,9 @@ export class DialogAddUserComponent {
     return doc(collection(this.firestore, colId), docId);
   }
   
-  onNoClick() {}
+  cencel() {
+    this.dialogRef.close();
+  }
 
   saveUser() {
     this.user.birthDate = this.birthDate.getTime();
