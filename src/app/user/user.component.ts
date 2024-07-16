@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -11,6 +11,7 @@ import {
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table'
+import { Firestore, collection, addDoc, doc } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-user',
@@ -24,6 +25,7 @@ import {MatTableModule} from '@angular/material/table'
 export class UserComponent {
   positionOptions: TooltipPosition[] = ['above'];
   position = new FormControl(this.positionOptions[0]);
+  private firestore: Firestore = inject(Firestore);
 
   constructor(private dialog : MatDialog){}
 
