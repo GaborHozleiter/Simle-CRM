@@ -1,27 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { Firestore, collection, onSnapshot, doc } from '@angular/fire/firestore';
 import { MatCardModule } from '@angular/material/card';
 import { ActivatedRoute } from '@angular/router';
+import { UserDetailsService } from '../user-details.service';
+import { CommonModule } from '@angular/common';
+import { User } from '../models/user.class';
 
 @Component({
   selector: 'app-user-detail',
   standalone: true,
-  imports: [MatCardModule],
+  imports: [MatCardModule, CommonModule],
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.scss'
 })
 export class UserDetailComponent implements OnInit{
 
-  userId : any = '';
+  userData: any;
 
-  constructor(private route : ActivatedRoute){
+  constructor(private route: ActivatedRoute, private userDetailsService: UserDetailsService) {}
 
-  }
+  async ngOnInit() {
+    const docId = this.route.snapshot.paramMap.get('id'); // Annahme: die URL enthält die ID als Parameter
 
-  ngOnInit(): void {
-      this.route.paramMap.subscribe(paramMap => {
-        this.userId = paramMap.get('id');
-        console.log('Id:' ,this.userId);
-      })
+    if (docId) {
+      this.userData = await this.userDetailsService.getUserData(docId);
+      console.log(this.userData); // Dies zeigt die Daten in der Konsole an
+      //this.userData = new User;
+    } else {
+      console.log('No ID found in URL');
+    }
   }
 
 }

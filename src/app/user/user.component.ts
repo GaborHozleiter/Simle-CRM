@@ -37,7 +37,7 @@ export class UserComponent implements OnDestroy {
         id: doc.id,
         ...doc.data()
       }));
-      console.log(this.userDetails.users); 
+      //console.log(this.userDetails.users); 
     });
   }
 

@@ -75,7 +75,7 @@ export class DialogAddUserComponent {
     ).then(
       (docRef) => { 
         if (docRef) {
-          console.log('User Id : ', docRef.id);
+          //console.log('User Id : ', docRef.id);
           this.loading = false;
           alert(this.loading);
         }

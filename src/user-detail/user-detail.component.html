@@ -1,20 +1,24 @@
-<mat-card appearance="outlined" class="user-detail-header">
-    <div class="user-detail">
-        <img src="../../assets/img/icon-4399701_1280.png" class="profil-image">
-        <div>
-            <h2>Marcell Hozleiter</h2>
-            <span>marcell-hozleiter-at-gmail.com</span>
+<div *ngIf="userData">
+    <mat-card appearance="outlined" class="user-detail-header">
+        <div class="user-detail">
+            <img src="../../assets/img/icon-4399701_1280.png" class="profil-image">
+            <div>
+                <h2>{{ userData.firstName }}{{ userData.lastName }}</h2>
+                <span>{{ userData.email }}</span>
+            </div>
         </div>
-    </div>
-</mat-card>
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>
-            Address
-        </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        Musterstraße 1 <br>
-        12345 Musetrstadt
-    </mat-card-content>
-</mat-card>
+    </mat-card>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                {{ userData.address }}
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            {{ userData.street }} <br>
+            {{ userData.zipCode }} {{ userData.city }} <br>
+            {{ userData.birthDate }}
+        </mat-card-content>
+    </mat-card>
+
+</div>
