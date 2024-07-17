@@ -10,12 +10,13 @@ import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.compo
 import { MatCardModule } from '@angular/material/card';
 import { Firestore, collection, onSnapshot, doc } from '@angular/fire/firestore';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-user',
   standalone: true,
   imports: [MatButtonModule, MatIconModule, MatTooltipModule, FormsModule, ReactiveFormsModule, MatSelectModule, MatFormFieldModule,
-     MatCardModule, CommonModule],
+     MatCardModule, CommonModule, RouterLink],
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
