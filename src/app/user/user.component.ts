@@ -27,12 +27,12 @@ export class UserComponent implements OnDestroy {
  
   private unsubscribeSnapshot: any;
 
-  private firestore: Firestore = inject(Firestore);
+  
 
   userDetails = inject(UserDetailsService);
 
   constructor(private dialog: MatDialog) {
-    this.unsubscribeSnapshot = onSnapshot(this.getUsersRef(), (snapshot) => {
+    this.unsubscribeSnapshot = onSnapshot(this.userDetails.getUsersRef(), (snapshot) => {
       this.userDetails.users = snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
@@ -49,11 +49,5 @@ export class UserComponent implements OnDestroy {
     this.dialog.open(DialogAddUserComponent);
   }
 
-  getUsersRef() {
-    return collection(this.firestore, 'users');
-  }
-
-  getSingleUserRef(colId: string, docId: string) {
-    return doc(collection(this.firestore, colId), docId);
-  }
+  
 }

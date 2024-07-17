@@ -14,6 +14,7 @@ import { User } from '../../models/user.class';
 import { FormsModule } from '@angular/forms';
 import { Firestore, collection, addDoc, doc } from '@angular/fire/firestore';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { UserDetailsService } from '../../user-details.service';
 
 @Component({
   selector: 'app-dialog-add-user',
@@ -45,13 +46,7 @@ export class DialogAddUserComponent {
 
   }
 
-  getUsersRef() {
-    return collection(this.firestore, 'users');
-  }
-
-  getSingleUserRef(colId: string, docId: string) {
-    return doc(collection(this.firestore, colId), docId);
-  }
+  userDetails = inject(UserDetailsService);
   
   cencel() {
     this.dialogRef.close();
@@ -75,7 +70,7 @@ export class DialogAddUserComponent {
       city: item.city
     };
     
-    await addDoc(this.getUsersRef(), userObj).catch(
+    await addDoc(this.userDetails.getUsersRef(), userObj).catch(
       (err) => { console.error(err); }
     ).then(
       (docRef) => { 
