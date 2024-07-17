@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { Firestore, collection, onSnapshot, doc } from '@angular/fire/firestore';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { UserDetailsService } from '../../user-details.service';
 
 @Component({
   selector: 'app-user',
@@ -23,18 +24,20 @@ import { RouterLink } from '@angular/router';
 export class UserComponent implements OnDestroy {
   positionOptions: TooltipPosition[] = ['above'];
   position = new FormControl(this.positionOptions[0]);
-  users: any[] = [];
+ 
   private unsubscribeSnapshot: any;
 
   private firestore: Firestore = inject(Firestore);
 
+  userDetails = inject(UserDetailsService);
+
   constructor(private dialog: MatDialog) {
     this.unsubscribeSnapshot = onSnapshot(this.getUsersRef(), (snapshot) => {
-      this.users = snapshot.docs.map(doc => ({
+      this.userDetails.users = snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
       }));
-      console.log(this.users); 
+      console.log(this.userDetails.users); 
     });
   }
 
