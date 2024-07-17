@@ -7,11 +7,13 @@
           <th>Firstname</th>
           <th>Lastname</th>
           <th>City</th>
+          <th>Id</th>
         </tr>
         <tr *ngFor="let user of users">
           <td>{{ user.firstName }}</td>
           <td>{{ user.lastName }}</td>
           <td>{{ user.city }}</td>
+          <td>{{ user.id }}</td>
         </tr>
       </tbody>
 

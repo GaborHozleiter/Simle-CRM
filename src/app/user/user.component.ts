@@ -22,14 +22,17 @@ import { CommonModule } from '@angular/common';
 export class UserComponent implements OnDestroy {
   positionOptions: TooltipPosition[] = ['above'];
   position = new FormControl(this.positionOptions[0]);
-  users: any[] = []; 
+  users: any[] = [];
   private unsubscribeSnapshot: any;
 
   private firestore: Firestore = inject(Firestore);
 
   constructor(private dialog: MatDialog) {
     this.unsubscribeSnapshot = onSnapshot(this.getUsersRef(), (snapshot) => {
-      this.users = snapshot.docs.map(doc => doc.data());
+      this.users = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }));
       console.log(this.users); 
     });
   }
