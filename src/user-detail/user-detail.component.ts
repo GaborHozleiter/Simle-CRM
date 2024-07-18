@@ -5,11 +5,13 @@ import { ActivatedRoute } from '@angular/router';
 import { UserDetailsService } from '../user-details.service';
 import { CommonModule } from '@angular/common';
 import { User } from '../models/user.class';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-user-detail',
   standalone: true,
-  imports: [MatCardModule, CommonModule],
+  imports: [MatCardModule, CommonModule, MatIconModule, MatButtonModule],
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.scss'
 })
@@ -29,6 +31,10 @@ export class UserDetailComponent implements OnInit{
     } else {
       console.log('No ID found in URL');
     }
+  }
+
+  openDialog(){
+    
   }
 
 }

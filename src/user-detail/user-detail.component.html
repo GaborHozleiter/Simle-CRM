@@ -3,12 +3,15 @@
         <div class="user-detail">
             <img src="../../assets/img/icon-4399701_1280.png" class="profil-image">
             <div>
-                <h2>{{ userData.firstName }}{{ userData.lastName }}</h2>
+                <h2>{{ userData.firstName }} {{ userData.lastName }}</h2>
                 <span>{{ userData.email }}</span>
             </div>
         </div>
     </mat-card>
     <mat-card>
+        <button mat-icon-button class="menu-button" (click)="openDialog()">
+            <mat-icon>more_vert</mat-icon>
+        </button>
         <mat-card-header>
             <mat-card-title>
                 {{ userData.address }}
