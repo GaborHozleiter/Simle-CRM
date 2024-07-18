@@ -7,11 +7,12 @@ import { CommonModule } from '@angular/common';
 import { User } from '../models/user.class';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
 
 @Component({
   selector: 'app-user-detail',
   standalone: true,
-  imports: [MatCardModule, CommonModule, MatIconModule, MatButtonModule],
+  imports: [MatCardModule, CommonModule, MatIconModule, MatButtonModule, MatMenuModule],
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.scss'
 })
@@ -34,7 +35,14 @@ export class UserDetailComponent implements OnInit{
   }
 
   openDialog(){
-    
+
   }
 
+  editUserDetails(){
+
+  }
+
+  editUserAdress(){
+    
+  }
 }
