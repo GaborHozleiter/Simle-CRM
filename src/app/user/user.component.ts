@@ -14,6 +14,7 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 import { DialogUserComponent } from '../dialog-user/dialog-user.component';
+import { User } from '../../models/user.class';
 
 @Component({
   selector: 'app-user',
