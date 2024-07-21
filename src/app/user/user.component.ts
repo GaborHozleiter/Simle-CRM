@@ -7,29 +7,41 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogUserComponent } from '../dialog-user/dialog-user.component';
 import { MatCardModule } from '@angular/material/card';
-import { collection, collectionData, Firestore } from '@angular/fire/firestore';
+import { collection, Firestore, CollectionReference, DocumentData, doc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { collectionChanges } from '@angular/fire/firestore';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [MatIconModule, MatButtonModule,MatTooltipModule, MatDialogModule, MatCardModule, CommonModule],
+  imports: [MatIconModule, MatButtonModule, MatTooltipModule, MatDialogModule, MatCardModule, CommonModule,
+    RouterLink
+  ],
   templateUrl: './user.component.html',
-  styleUrl: './user.component.scss'
+  styleUrls: ['./user.component.scss'] // `styleUrl` geändert zu `styleUrls`
 })
 export class UserComponent implements OnInit {
   positionOptions: TooltipPosition[] = ['above'];
   position = new FormControl(this.positionOptions[0]);
-  allUsers: any;
+  allUsers: any[] = [];
 
   private firestore: Firestore = inject(Firestore);
 
   constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    const usersCollection = collection(this.firestore, 'users');
-    const users$: Observable<any[]> = collectionData(usersCollection);
+    const usersCollection: CollectionReference<DocumentData> = collection(this.firestore, 'users');
+    const users$: Observable<any[]> = collectionChanges(usersCollection).pipe(
+      map(actions => actions.map(a => {
+        const data = a.doc.data();
+        const id = a.doc.id;
+        return { id, ...data };
+      }))
+    );
+
     users$.subscribe((data: any[]) => {
       this.allUsers = data;
       console.log(this.allUsers); 

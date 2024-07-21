@@ -30,7 +30,7 @@ export class DialogUserComponent {
   constructor(public dialogRef: MatDialogRef<DialogUserComponent>) { }
 
   cencel(): void {
-  
+    this.dialogRef.close();
   }
 
   async saveUser() {
