@@ -25,6 +25,10 @@
     </div>
     <div>
         <mat-form-field appearance="outline" class="full-width">
+            <mat-label>E-mail</mat-label>
+            <input matInput placeholder="E-mail" [(ngModel)]="user.email" [disabled]="loading">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
             <mat-label>Street & House no.</mat-label>
             <input matInput placeholder="Street & House no." [(ngModel)]="user.street" [disabled]="loading">
         </mat-form-field>

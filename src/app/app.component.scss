@@ -18,6 +18,8 @@
     min-height: 56px;
     display: flex;
     align-items: center;
+    background-image: url('../assets/img/Logo.png');
+    object-fit: cover;
 }
 
 mat-toolbar-row, mat-toolbar {

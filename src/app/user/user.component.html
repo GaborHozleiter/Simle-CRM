@@ -1,23 +1,21 @@
 <mat-card appearance="outlined">
-  <tbody>
-    <table class="user-table">
+
+  <table class="user-table">
+    <tbody>
       <tr>
         <th>Name</th>
         <th>Email</th>
         <th>City</th>
       </tr>
-      <tr>
-        <td>dhdhg</td>
-        <td>sdbgjdsb</td>
-        <td>djfgkd</td>
+      <tr *ngFor="let user of allUsers">
+        <td>{{ user.firstName }} {{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.city }}</td>
       </tr>
-      <tr>
-        <td>dhdhg</td>
-        <td>sdbgjdsb</td>
-        <td>djfgkd</td>
-      </tr>
-    </table>
-  </tbody>
+    </tbody>
+
+  </table>
+
 </mat-card>
 
 
