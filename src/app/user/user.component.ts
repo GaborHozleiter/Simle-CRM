@@ -21,7 +21,7 @@ import { RouterLink } from '@angular/router';
     RouterLink
   ],
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss'] // `styleUrl` geändert zu `styleUrls`
+  styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
   positionOptions: TooltipPosition[] = ['above'];
