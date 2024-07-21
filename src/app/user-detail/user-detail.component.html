@@ -5,6 +5,9 @@
         <div>
             <h2>{{ user.firstName }} {{ user.lastName }}</h2>
             <span>{{ user.email }}</span>
+            <button mat-icon-button class="icon">
+                <mat-icon>more_vert</mat-icon>
+            </button>
         </div>
     </div>
 </mat-card>
@@ -13,6 +16,9 @@
         <mat-card-title>
             {{ user.city }}
         </mat-card-title>
+        <button mat-icon-button class="icon" (click)="openAdressDialog()">
+            <mat-icon>more_vert</mat-icon>
+        </button>
     </mat-card-header>
     <mat-card-content>
         {{ user.street }}<br>
