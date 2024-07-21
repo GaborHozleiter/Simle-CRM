@@ -5,21 +5,15 @@ import {MatTooltipModule, TooltipPosition} from '@angular/material/tooltip';
 import { FormControl } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import {
-  MAT_DIALOG_DATA,
   MatDialog,
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
-  MatDialogRef,
-  MatDialogTitle,
 } from '@angular/material/dialog';
 import { DialogUserComponent } from '../dialog-user/dialog-user.component';
-import { User } from '../../models/user.class';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [MatIconModule, MatButtonModule,MatTooltipModule, MatDialogModule],
+  imports: [MatIconModule, MatButtonModule,MatTooltipModule, MatDialogModule, MatCardModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })
