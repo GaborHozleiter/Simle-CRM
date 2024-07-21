@@ -34,7 +34,7 @@ export class DialogUserComponent {
   }
 
   async saveUser() {
-    console.log(this.user);
+    //console.log(this.user);
     this.user.birthDate = this.birthDate.getTime();
     this.loading = true;
     try {
