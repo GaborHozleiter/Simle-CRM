@@ -5,8 +5,11 @@
         <div>
             <h2>{{ user.firstName }} {{ user.lastName }}</h2>
             <span>{{ user.email }}</span>
-            <button mat-icon-button class="icon">
+            <button mat-icon-button class="icon" [matMenuTriggerFor]="menu">
                 <mat-icon>more_vert</mat-icon>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>Edit</button>
+                </mat-menu>
             </button>
         </div>
     </div>
@@ -16,8 +19,11 @@
         <mat-card-title>
             {{ user.city }}
         </mat-card-title>
-        <button mat-icon-button class="icon" (click)="openAdressDialog()">
+        <button mat-icon-button class="icon" [matMenuTriggerFor]="AdressMenu">
             <mat-icon>more_vert</mat-icon>
+            <mat-menu #AdressMenu="matMenu">
+                <button mat-menu-item  (click)="openAdressDialog()">Edit</button>
+              </mat-menu>
         </button>
     </mat-card-header>
     <mat-card-content>
