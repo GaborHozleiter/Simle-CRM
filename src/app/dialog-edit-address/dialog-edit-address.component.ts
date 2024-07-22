@@ -20,6 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './dialog-edit-address.component.scss'
 })
 export class DialogEditAddressComponent implements OnInit{
+  [x: string]: any;
 
   user!: User;
   loading = false;
