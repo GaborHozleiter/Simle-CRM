@@ -7,12 +7,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-dialog-edit-address',
   standalone: true,
   imports: [CommonModule, MatProgressBarModule, MatDialogContent, MatDialogActions, MatDialogClose,
-    MatFormFieldModule, FormsModule, MatInputModule
+    MatFormFieldModule, FormsModule, MatInputModule, MatButtonModule
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './dialog-edit-address.component.html',
