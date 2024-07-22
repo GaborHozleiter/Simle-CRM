@@ -48,7 +48,6 @@ export class DialogEditUserComponent implements OnInit{
     try {
       const userDocRef = doc(this.firestore, `users/${this.userId}`);
       await updateDoc(userDocRef, { ...this.user });
-      console.log('User successfully updated!');
       this.loading = false;
       this.dialogRef.close();
     } catch (error) {

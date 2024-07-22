@@ -44,7 +44,6 @@ export class UserDetailComponent implements OnInit {
 
     userDoc$.subscribe(data => {
       this.user = new User({ id, ...data });   
-      console.log(this.user); 
     });
   }
 

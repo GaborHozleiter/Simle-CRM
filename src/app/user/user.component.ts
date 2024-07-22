@@ -44,7 +44,6 @@ export class UserComponent implements OnInit {
 
     users$.subscribe((data: any[]) => {
       this.allUsers = data;
-      console.log(this.allUsers); 
     });
   }
 
