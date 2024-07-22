@@ -10,12 +10,13 @@ import { CommonModule } from '@angular/common';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 import { inject } from '@angular/core';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-dialog-user',
   standalone: true,
   imports: [MatDialogContent, MatDialogActions, MatDialogClose, MatInputModule, MatFormFieldModule, FormsModule, 
-    MatDatepickerModule, CommonModule, MatProgressBarModule],
+    MatDatepickerModule, CommonModule, MatProgressBarModule, MatButtonModule],
   providers: [provideNativeDateAdapter()],
   templateUrl: './dialog-user.component.html',
   styleUrls: ['./dialog-user.component.scss'],
@@ -34,7 +35,6 @@ export class DialogUserComponent {
   }
 
   async saveUser() {
-    //console.log(this.user);
     this.user.birthDate = this.birthDate.getTime();
     this.loading = true;
     try {
