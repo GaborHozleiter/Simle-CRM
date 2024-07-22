@@ -38,8 +38,8 @@ export class DialogEditAddressComponent implements OnInit{
       
   }
 
-  cencel(){
-
+  cencel(): void {
+    this.dialogRef.close();
   }
 
   async saveUser() {

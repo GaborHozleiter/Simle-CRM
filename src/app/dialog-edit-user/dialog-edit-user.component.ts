@@ -58,7 +58,7 @@ export class DialogEditUserComponent implements OnInit{
   }
 
 
-  cencel(){
-
+  cencel(): void {
+    this.dialogRef.close();
   }
 }
