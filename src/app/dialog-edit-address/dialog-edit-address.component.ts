@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { User } from '../../models/user.class';
 import { CommonModule } from '@angular/common';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { doc, Firestore, updateDoc } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-dialog-edit-address',
@@ -24,6 +25,10 @@ export class DialogEditAddressComponent implements OnInit{
 
   user!: User;
   loading = false;
+  userId : string = '';
+  birthDate = Date;
+
+  private firestore: Firestore = inject(Firestore);
 
   constructor(public dialogRef: MatDialogRef<DialogEditAddressComponent>){
 
@@ -37,8 +42,25 @@ export class DialogEditAddressComponent implements OnInit{
 
   }
 
-  saveUser() {
+  async saveUser() {
+    if (!this.userId) {
+      console.error('User ID is missing');
+      return;
+    }
 
+    
+    this.loading = true;
+
+    try {
+      const userDocRef = doc(this.firestore, `users/${this.userId}`);
+      await updateDoc(userDocRef, { ...this.user });
+      console.log('User successfully updated!');
+      this.loading = false;
+      this.dialogRef.close();
+    } catch (error) {
+      console.error('Error updating user: ', error);
+      this.loading = false; 
+    }
   }
 
 }
